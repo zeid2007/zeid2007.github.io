@@ -7,170 +7,251 @@
 
 <style>
     body {
-        font-family: "Cairo", sans-serif;
-        background-color: #f4f4f4;
+        font-family: "Cairo", system-ui, sans-serif;
+        background-color: #f3f4f6;
         margin: 0;
         padding: 0;
-        text-align: center;
     }
 
-    .container {
-        width: 85%;
-        max-width: 750px;
-        margin: 30px auto;
-        background: #fff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    .page {
+        max-width: 900px;
+        margin: 30px auto 40px;
+        padding: 0 16px;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        padding: 22px 20px 18px;
+    }
+
+    .cover-wrap {
+        text-align: center;
+        margin-bottom: 18px;
     }
 
     .cover-img {
+        max-width: 260px;
         width: 100%;
-        border-radius: 10px;
-        margin-bottom: 20px;
+        border-radius: 14px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.2);
     }
 
     h1 {
+        text-align: center;
         font-size: 26px;
-        margin-bottom: 15px;
-        font-weight: bold;
+        margin: 12px 0 6px;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 14px;
     }
 
     .section {
-        background: rgba(15,23,42,0.07);
-        border-radius: 10px;
-        padding: 12px 12px 18px;
-        margin-top: 20px;
-        border: 1px solid rgba(0,0,0,0.1);
-        text-align: right;
+        background: #f9fafb;
+        border-radius: 14px;
+        padding: 14px 14px 16px;
+        margin-top: 16px;
+        border: 1px solid #e5e7eb;
     }
 
     .section-title {
         font-size: 18px;
         font-weight: 700;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+        color: #111827;
+    }
+
+    .section-title span.icon {
+        font-size: 20px;
     }
 
     ul {
-        text-align: right;
         list-style: none;
-        padding-right: 5px;
+        padding: 0;
         margin: 0;
+        text-align: right;
     }
 
-    ul li {
-        margin: 6px 0;
+    li {
         font-size: 15px;
+        margin: 5px 0;
+        line-height: 1.6;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: baseline;
     }
 
-    ul li a {
-        text-decoration: none;
-        color: #2563eb;
+    li .lesson-label {
         font-weight: 600;
+        color: #111827;
     }
 
-    ul li a:hover {
-        text-decoration: underline;
+    li .tag {
+        font-size: 12px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        white-space: nowrap;
+    }
+
+    .tag-video {
+        background-color: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+    }
+
+    .tag-audio {
+        background-color: #ecfdf3;
+        color: #15803d;
+        border: 1px solid #bbf7d0;
+    }
+
+    .tag-pdf {
+        background-color: #fef3c7;
+        color: #92400e;
+        border: 1px solid #fde68a;
+    }
+
+    .rights {
+        margin-top: 22px;
+        text-align: center;
+        font-size: 13px;
+        color: #4b5563;
+        padding-top: 10px;
+        border-top: 1px dashed #e5e7eb;
+    }
+
+    @media (max-width: 600px) {
+        .card {
+            padding: 18px 14px 14px;
+        }
+        h1 {
+            font-size: 22px;
+        }
+        li {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    
-    <!-- صورة الغلاف -->
-    <img src="ghlav.jpg" alt="غلاف الكتاب" class="cover-img">
+<div class="page">
+    <div class="card">
 
-    <h1>المحتوى المرئي والصوتي للكتاب</h1>
+        <!-- صورة الغلاف -->
+        <div class="cover-wrap">
+            <!-- إذا لم تظهر الصورة تأكد أن اسم الملف في المستودع هو ghlav.jpg أو غيّر هذا الاسم ليتطابق معه -->
+            <img src="ghlav.jpg" alt="غلاف الكتاب" class="cover-img">
+        </div>
 
-    <p>اضغط على العناوين للمشاهدة أو الاستماع أو تحميل الكتاب.</p>
+        <h1>المحتوى المرئي والصوتي للكتاب</h1>
+        <div class="subtitle">
+            هذه الصفحة مخصّصة لمواد الكتاب الرقمية. الروابط سيتم تفعيلها لاحقًا بإذن الله.
+        </div>
 
-    <!-- قسم تحميل الكتاب PDF -->
-    <div class="section">
-        <div class="section-title">📚 تحميل الكتاب (PDF)</div>
-        <ul>
-            <li>
-                <!-- غيّر book.pdf إلى اسم ملف الـPDF إن كان مختلفًا -->
-                <a href="book.pdf" download>
-                    تحميل نسخة الكتاب كاملة بصيغة PDF
-                </a>
-            </li>
-        </ul>
+        <!-- قسم تحميل الكتاب PDF -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📚</span>
+                <span>تحميل الكتاب (PDF)</span>
+            </div>
+            <ul>
+                <li>
+                    <span class="lesson-label">تحميل نسخة الكتاب كاملة بصيغة PDF</span>
+                    <span class="tag tag-pdf">سيتوفر رابط التحميل قريبًا</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- قسم الفيديوهات -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📺</span>
+                <span>فيديوهات الكتاب</span>
+            </div>
+            <ul>
+                <li>
+                    <span class="lesson-label">مشاهدة ملف فيديو واحد يجمع جميع دروس الكتاب</span>
+                    <span class="tag tag-video">الرابط متاح قريبًا</span>
+                </li>
+
+                <li><span class="lesson-label">مشاهدة الدرس (1): القرآن الكريم وعلم التجويد</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (2): المدود</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (3): مخارج الحروف</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (4): صفات الحروف</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (5): ال التعريف الشمسية والقمريّة</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (6): اللامات السواكن</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (8): الحروف المقطعة</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (9): الألفات السبعة</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (10): التفخيم والترقيق</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (11): الوقف والابتداء</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (12): السكت</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (13): الروم والإشمام</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (14): التقاء الساكنين</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (15): ملاحظات حول قراءة حفص</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (16): القراء العشرة ورواتهم</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (17): الهمزة الأولية (الوصل والقطع)</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (18): الرسم العثماني للمصحف الشريف</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (19): فوائد تجويدية</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (20): لطائف قرآنية</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+                <li><span class="lesson-label">مشاهدة الدرس (21): ثمرات متصلة</span><span class="tag tag-video">الرابط متاح قريبًا</span></li>
+            </ul>
+        </div>
+
+        <!-- قسم الصوتيات -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🎧</span>
+                <span>صوتيات الكتاب</span>
+            </div>
+            <ul>
+                <li>
+                    <span class="lesson-label">استماع ملف صوتي واحد يجمع جميع دروس الكتاب</span>
+                    <span class="tag tag-audio">الصوت قيد التحضير</span>
+                </li>
+
+                <li><span class="lesson-label">استماع الدرس (1): القرآن الكريم وعلم التجويد</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (2): المدود</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (3): مخارج الحروف</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (4): صفات الحروف</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (5): ال التعريف الشمسية والقمريّة</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (6): اللامات السواكن</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (8): الحروف المقطعة</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (9): الألفات السبعة</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (10): التفخيم والترقيق</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (11): الوقف والابتداء</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (12): السكت</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (13): الروم والإشمام</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (14): التقاء الساكنين</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (15): ملاحظات حول قراءة حفص</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (16): القراء العشرة ورواتهم</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (17): الهمزة الأولية (الوصل والقطع)</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (18): الرسم العثماني للمصحف الشريف</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (19): فوائد تجويدية</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (20): لطائف قرآنية</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+                <li><span class="lesson-label">استماع الدرس (21): ثمرات متصلة</span><span class="tag tag-audio">الصوت قيد التحضير</span></li>
+            </ul>
+        </div>
+
+        <!-- حقوق التأليف -->
+        <div class="rights">
+            حقوق التأليف: يُسمح بالنسخ والمشاركة والنشر دون قيود
+        </div>
+
     </div>
-
-    <!-- قسم الفيديوهات -->
-    <div class="section">
-        <div class="section-title">📺 فيديوهات</div>
-        <ul>
-            <!-- ملف فيديو واحد جامع لكل الدروس -->
-            <li>📘 مشاهدة ملف فيديو واحد يجمع جميع دروس الكتاب</li>
-
-            <!-- الدروس منفصلة حسب الفهرس -->
-            <li>📘 مشاهدة الدرس (1): القرآن الكريم وعلم التجويد</li>
-            <li>📘 مشاهدة الدرس (2): المدود</li>
-            <li>📘 مشاهدة الدرس (3): مخارج الحروف</li>
-            <li>📘 مشاهدة الدرس (4): صفات الحروف</li>
-            <li>📘 مشاهدة الدرس (5): ال التعريف الشمسية والقمريّة</li>
-            <li>📘 مشاهدة الدرس (6): اللامات السواكن</li>
-            <li>📘 مشاهدة الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</li>
-            <li>📘 مشاهدة الدرس (8): الحروف المقطعة</li>
-            <li>📘 مشاهدة الدرس (9): الألفات السبعة</li>
-            <li>📘 مشاهدة الدرس (10): التفخيم والترقيق</li>
-            <li>📘 مشاهدة الدرس (11): الوقف والابتداء</li>
-            <li>📘 مشاهدة الدرس (12): السكت</li>
-            <li>📘 مشاهدة الدرس (13): الروم والإشمام</li>
-            <li>📘 مشاهدة الدرس (14): التقاء الساكنين</li>
-            <li>📘 مشاهدة الدرس (15): ملاحظات حول قراءة حفص</li>
-            <li>📘 مشاهدة الدرس (16): القراء العشرة ورواتهم</li>
-            <li>📘 مشاهدة الدرس (17): الهمزة الأولية (الوصل والقطع)</li>
-            <li>📘 مشاهدة الدرس (18): الرسم العثماني للمصحف الشريف</li>
-            <li>📘 مشاهدة الدرس (19): فوائد تجويدية</li>
-            <li>📘 مشاهدة الدرس (20): لطائف قرآنية</li>
-            <li>📘 مشاهدة الدرس (21): ثمرات متصلة</li>
-        </ul>
-    </div>
-
-    <!-- قسم الصوتيات -->
-    <div class="section">
-        <div class="section-title">🎧 صوتيات</div>
-        <ul>
-            <!-- ملف صوتي واحد جامع لجميع الصوتيات -->
-            <li>🎵 استماع ملف صوتي واحد يجمع جميع دروس الكتاب</li>
-
-            <!-- الدروس منفصلة حسب الفهرس -->
-            <li>🎵 استماع الدرس (1): القرآن الكريم وعلم التجويد</li>
-            <li>🎵 استماع الدرس (2): المدود</li>
-            <li>🎵 استماع الدرس (3): مخارج الحروف</li>
-            <li>🎵 استماع الدرس (4): صفات الحروف</li>
-            <li>🎵 استماع الدرس (5): ال التعريف الشمسية والقمريّة</li>
-            <li>🎵 استماع الدرس (6): اللامات السواكن</li>
-            <li>🎵 استماع الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</li>
-            <li>🎵 استماع الدرس (8): الحروف المقطعة</li>
-            <li>🎵 استماع الدرس (9): الألفات السبعة</li>
-            <li>🎵 استماع الدرس (10): التفخيم والترقيق</li>
-            <li>🎵 استماع الدرس (11): الوقف والابتداء</li>
-            <li>🎵 استماع الدرس (12): السكت</li>
-            <li>🎵 استماع الدرس (13): الروم والإشمام</li>
-            <li>🎵 استماع الدرس (14): التقاء الساكنين</li>
-            <li>🎵 استماع الدرس (15): ملاحظات حول قراءة حفص</li>
-            <li>🎵 استماع الدرس (16): القراء العشرة ورواتهم</li>
-            <li>🎵 استماع الدرس (17): الهمزة الأولية (الوصل والقطع)</li>
-            <li>🎵 استماع الدرس (18): الرسم العثماني للمصحف الشريف</li>
-            <li>🎵 استماع الدرس (19): فوائد تجويدية</li>
-            <li>🎵 استماع الدرس (20): لطائف قرآنية</li>
-            <li>🎵 استماع الدرس (21): ثمرات متصلة</li>
-        </ul>
-    </div>
-
-    <!-- عبارة حقوق التأليف -->
-    <div style="margin-top: 30px; padding: 10px; font-size: 14px; color: #555; text-align: center; opacity: 0.9;">
-        حقوق التأليف: يُسمح بالنسخ والمشاركة والنشر دون قيود
-    </div>
-
 </div>
 
 </body>
