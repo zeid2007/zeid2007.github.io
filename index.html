@@ -1,431 +1,156 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>المحتوى المرئي والصوتي للكتاب</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المحتوى المرئي والصوتي للكتاب</title>
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card-bg: #0b1220;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.3);
-          .chapter-group {
-      margin-top: 8px;
-      padding-top: 6px;
-      border-top: 1px dashed rgba(148,163,184,0.4);
-    }
-
-    .chapter-title {
-      font-size: 13px;
-      color: #9ca3af;
-      margin-bottom: 4px;
-    }
-
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
+<style>
     body {
-      margin: 0;
-      font-family: "Tahoma", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
-      color: var(--text-main);
+        font-family: "Cairo", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
     }
 
-    .page {
-      max-width: 1100px;
-      margin: 30px auto 40px;
-      padding: 0 16px;
+    .container {
+        width: 85%;
+        max-width: 750px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
-    .card {
-      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
-      border-radius: 22px;
-      padding: 26px 26px 22px;
-      box-shadow:
-        0 24px 60px rgba(15,23,42,0.75),
-        0 0 0 1px rgba(148,163,184,0.18);
-      display: flex;
-      gap: 26px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .cover-wrap {
-      flex: 0 0 260px;
-      max-width: 260px;
-      position: relative;
-    }
-
-    .cover-wrap::before {
-      content: "";
-      position: absolute;
-      inset: -14px -10px -20px;
-      border-radius: 26px;
-      background: radial-gradient(circle at top, rgba(56,189,248,0.28), transparent 60%);
-      filter: blur(6px);
-      opacity: 0.8;
-      z-index: 0;
-    }
-
-    .cover {
-      position: relative;
-      z-index: 1;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow:
-        0 18px 40px rgba(0,0,0,0.8),
-        0 0 0 1px rgba(148,163,184,0.4);
-    }
-
-    .cover img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .content {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.8);
-      border: 1px solid rgba(148,163,184,0.5);
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    .cover-img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 20px;
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: 26px;
-      color: #f9fafb;
+        font-size: 26px;
+        margin-bottom: 15px;
+        font-weight: bold;
     }
 
-    .subtitle {
-      margin: 0 0 16px;
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--text-muted);
-    }
-
-    .note {
-      background: rgba(15,23,42,0.95);
-      border-radius: 12px;
-      border: 1px solid var(--border-subtle);
-      padding: 10px 12px;
-      font-size: 13px;
-      color: #e5e7eb;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      margin-bottom: 18px;
-    }
-
-    .note-icon {
-      font-size: 18px;
-      margin-top: 1px;
-    }
-
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .section-card {
-      background: rgba(15,23,42,0.9);
-      border-radius: 14px;
-      padding: 12px 12px 10px;
-      border: 1px solid var(--border-subtle);
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
+    .section {
+        background: rgba(15,23,42,0.07);
+        border-radius: 10px;
+        padding: 12px 12px 18px;
+        margin-top: 20px;
+        border: 1px solid rgba(0,0,0,0.1);
+        text-align: right;
     }
 
     .section-title {
-      font-size: 15px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
-    .section-icon {
-      font-size: 18px;
+    ul {
+        text-align: right;
+        list-style: none;
+        padding-right: 5px;
+        margin: 0;
     }
 
-    .section-count {
-      font-size: 11px;
-      color: var(--text-muted);
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.8);
-      border: 1px solid rgba(148,163,184,0.5);
+    ul li {
+        margin: 6px 0;
+        font-size: 15px;
     }
 
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 6px;
+    ul li a {
+        text-decoration: none;
+        color: #2563eb;
+        font-weight: 600;
     }
 
-    .pill-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.55);
-      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(15,23,42,0.98));
-      text-decoration: none;
-      color: #e5e7eb;
-      font-size: 13px;
+    ul li a:hover {
+        text-decoration: underline;
     }
-
-    .pill-link span.label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pill-link span.meta {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .pill-link:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(56,189,248,0.4);
-    }
-
-    .pill-link:hover span.label {
-      color: #f9fafb;
-    }
-
-    .qr-note {
-      margin-top: 14px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .qr-note strong {
-      color: #e5e7eb;
-    }
-
-    .footer {
-      margin-top: 18px;
-      font-size: 11px;
-      text-align: center;
-      color: #6b7280;
-    }
-
-    @media (max-width: 800px) {
-      .card {
-        padding: 20px 18px 18px;
-      }
-      .cover-wrap {
-        flex: 1 1 100%;
-        max-width: 280px;
-        margin: 0 auto 8px;
-      }
-      h1 {
-        font-size: 22px;
-        text-align: center;
-      }
-      .subtitle, .note {
-        text-align: center;
-      }
-      .note {
-        justify-content: center;
-      }
-      .note-icon {
-        display: none;
-      }
-      .sections {
-        grid-template-columns: 1fr;
-      }
-      .qr-note {
-        text-align: center;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <div class="page">
-    <div class="card">
+<div class="container">
+    
+    <img src="ghlav.jpg" alt="غلاف الكتاب" class="cover-img">
 
-      <!-- غلاف الكتاب -->
-      <div class="cover-wrap">
-        <div class="cover">
-          <!-- تأكد أن اسم الملف يطابق الصورة في المستودع: glav.jpg -->
-          <img src="glav.jpg" alt="غلاف الكتاب">
-        </div>
-      </div>
+    <h1>المحتوى المرئي والصوتي للكتاب</h1>
 
-      <!-- محتوى الموقع -->
-      <div class="content">
+    <p>اضغط على العنوان للمشاهدة أو الاستماع.</p>
 
-        <div class="badge">
-          <span class="dot"></span>
-          <span>منصة المحتوى الرقمي المرافق للكتاب</span>
-        </div>
+    <!-- ------------------------------------------------------ -->
+    <!-- قسم الفيديوهات -->
+    <!-- ------------------------------------------------------ -->
 
-        <h1>المحتوى المرئي والصوتي للكتاب</h1>
-
-        <p class="subtitle">
-          يمكنك من خلال هذه الصفحة الوصول إلى جميع الفيديوهات والمقاطع الصوتية المرافقة للكتاب،
-          مرتبة حسب الفصول والمحتوى التعليمي.
-        </p>
-
-        <div class="note">
-          <div class="note-icon">ℹ️</div>
-          <div>
-            يُنصح باستخدام اتصال إنترنت مستقر، وفتح الروابط على شاشة كاملة للحصول على أفضل تجربة
-            مشاهدة واستماع.
-          </div>
-        </div>
-
-        <div class="sections">
-
-          <!-- قسم الفيديوهات -->
-          <div class="section-card">
-            <div class="section-header">
-              <div class="section-title">
-                <span class="section-icon">🎬</span>
-                <span>فيديوهات الكتاب</span>
-              </div>
-              <div class="section-count">مواد مرئية</div>
-            </div>
-
-            <div class="links">
-              <!-- غيّر # بروابط الفيديو الفعلية (يوتيوب أو غيره) -->
-              <a class="pill-link" href="#" target="_blank">
-                <span class="label">الفصل الأول – فيديو تعليمي</span>
-                <span class="meta">مدة تقريبية: 10 دقائق</span>
-              </a>
-              <a class="pill-link" href="#" target="_blank">
-                <span class="label">الفصل الثاني – تطبيقات عملية</span>
-                <span class="meta">مدة تقريبية: 12 دقيقة</span>
-              </a>
-              <!-- يمكنك نسخ السطرين أعلاه وإضافة المزيد -->
-            </div>
-          </div>
-          <div class="links">
-
-  <!-- الباب الأول -->
-  <div class="chapter-group">
-    <div class="chapter-title">الباب الأول: عنوان الباب هنا</div>
-
-    <a class="pill-link" href="#" target="_blank">
-      <span class="label">الدرس 1 – فيديو</span>
-      <span class="meta">مدة تقريبية: 8 دقائق</span>
-    </a>
-
-    <a class="pill-link" href="#" target="_blank">
-      <span class="label">الدرس 2 – فيديو</span>
-      <span class="meta">مدة تقريبية: 10 دقائق</span>
-    </a>
-  </div>
-
-  <!-- الباب الثاني -->
-  <div class="chapter-group">
-    <div class="chapter-title">الباب الثاني: عنوان الباب هنا</div>
-
-    <a class="pill-link" href="#" target="_blank">
-      <span class="label">الدرس 1 – فيديو</span>
-      <span class="meta">مدة تقريبية: 9 دقائق</span>
-    </a>
-
-    <a class="pill-link" href="#" target="_blank">
-      <span class="label">الدرس 2 – فيديو</span>
-      <span class="meta">مدة تقريبية: 11 دقيقة</span>
-    </a>
-  </div>
-
-  <!-- كرّر نفس البنية لباقي الأبواب -->
-
-</div>
-
-
-          <!-- قسم الصوتيات -->
-          <div class="section-card">
-            <div class="section-header">
-              <div class="section-title">
-                <span class="section-icon">🎧</span>
-                <span>المقاطع الصوتية</span>
-              </div>
-              <div class="section-count">مواد صوتية</div>
-            </div>
-
-            <div class="links">
-              <!-- غيّر # بروابط ملفات MP3 أو غيرها -->
-              <a class="pill-link" href="#" target="_blank">
-                <span class="label">الفصل الأول – تلاوة / شرح صوتي</span>
-                <span class="meta">ملف صوتي بصيغة MP3</span>
-              </a>
-              <a class="pill-link" href="#" target="_blank">
-                <span class="label">الفصل الثاني – متابعة وتدريب</span>
-                <span class="meta">ملف صوتي بصيغة MP3</span>
-              </a>
-              <!-- أضف المزيد حسب الحاجة -->
-            </div>
-          </div>
-<!-- قسم الصوتيات -->
-<div class="section-card">
-  <div class="section-header">
-    ...
-  </div>
-
-  <div class="links">
-    <a class="pill-link" href="#" target="_blank">...</a>
-    ...
-  </div>
-</div>
-
-        </div>
-
-        <div class="qr-note">
-          <strong>تنبيه للقارئ:</strong>
-          يمكن العودة إلى هذه الصفحة في أي وقت عن طريق مسح رمز الاستجابة السريعة
-          (QR) المطبوع داخل الكتاب.
-        </div>
-
-        <div class="footer">
-          جميع الحقوق محفوظة لمؤلف الكتاب ©  
-        </div>
-
-      </div>
+    <div class="section">
+        <div class="section-title">📺 فيديوهات</div>
+        <ul>
+            <li>📘 مشاهدة الدرس (1): القرآن الكريم وعلم التجويد</li>
+            <li>📘 مشاهدة الدرس (2): المدود</li>
+            <li>📘 مشاهدة الدرس (3): مخارج الحروف</li>
+            <li>📘 مشاهدة الدرس (4): صفات الحروف</li>
+            <li>📘 مشاهدة الدرس (5): ال التعريف الشمسية والقمريّة</li>
+            <li>📘 مشاهدة الدرس (6): اللامات السواكن</li>
+            <li>📘 مشاهدة الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</li>
+            <li>📘 مشاهدة الدرس (8): الحروف المقطعة</li>
+            <li>📘 مشاهدة الدرس (9): الألفات السبعة</li>
+            <li>📘 مشاهدة الدرس (10): التفخيم والترقيق</li>
+            <li>📘 مشاهدة الدرس (11): الوقف والابتداء</li>
+            <li>📘 مشاهدة الدرس (12): السكت</li>
+            <li>📘 مشاهدة الدرس (13): الروم والإشمام</li>
+            <li>📘 مشاهدة الدرس (14): التقاء الساكنين</li>
+            <li>📘 مشاهدة الدرس (15): ملاحظات حول قراءة حفص</li>
+            <li>📘 مشاهدة الدرس (16): القراء العشرة ورواتهم</li>
+            <li>📘 مشاهدة الدرس (17): الهمزة الأولية (الوصل والقطع)</li>
+            <li>📘 مشاهدة الدرس (18): الرسم العثماني للمصحف الشريف</li>
+            <li>📘 مشاهدة الدرس (19): فوائد تجويدية</li>
+            <li>📘 مشاهدة الدرس (20): لطائف قرآنية</li>
+            <li>📘 مشاهدة الدرس (21): ثمرات متصلة</li>
+        </ul>
     </div>
-  </div>
+
+    <!-- ------------------------------------------------------ -->
+    <!-- قسم الصوتيات -->
+    <!-- ------------------------------------------------------ -->
+
+    <div class="section">
+        <div class="section-title">🎧 صوتيات</div>
+        <ul>
+            <li>🎵 استماع الدرس (1): القرآن الكريم وعلم التجويد</li>
+            <li>🎵 استماع الدرس (2): المدود</li>
+            <li>🎵 استماع الدرس (3): مخارج الحروف</li>
+            <li>🎵 استماع الدرس (4): صفات الحروف</li>
+            <li>🎵 استماع الدرس (5): ال التعريف الشمسية والقمريّة</li>
+            <li>🎵 استماع الدرس (6): اللامات السواكن</li>
+            <li>🎵 استماع الدرس (7): إدغام المتماثلين والمتجانسين والمتقاربين</li>
+            <li>🎵 استماع الدرس (8): الحروف المقطعة</li>
+            <li>🎵 استماع الدرس (9): الألفات السبعة</li>
+            <li>🎵 استماع الدرس (10): التفخيم والترقيق</li>
+            <li>🎵 استماع الدرس (11): الوقف والابتداء</li>
+            <li>🎵 استماع الدرس (12): السكت</li>
+            <li>🎵 استماع الدرس (13): الروم والإشمام</li>
+            <li>🎵 استماع الدرس (14): التقاء الساكنين</li>
+            <li>🎵 استماع الدرس (15): ملاحظات حول قراءة حفص</li>
+            <li>🎵 استماع الدرس (16): القراء العشرة ورواتهم</li>
+            <li>🎵 استماع الدرس (17): الهمزة الأولية (الوصل والقطع)</li>
+            <li>🎵 استماع الدرس (18): الرسم العثماني للمصحف الشريف</li>
+            <li>🎵 استماع الدرس (19): فوائد تجويدية</li>
+            <li>🎵 استماع الدرس (20): لطائف قرآنية</li>
+            <li>🎵 استماع الدرس (21): ثمرات متصلة</li>
+        </ul>
+    </div>
+
+</div>
 
 </body>
 </html>
