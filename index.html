@@ -44,31 +44,6 @@
             margin-bottom: 25px;
         }
 
-        .download-box {
-            margin: 18px 0 25px;
-            text-align: center;
-        }
-
-        .download-btn {
-            display: block;
-            width: 85%;
-            margin: 8px auto;
-            padding: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            border: none;
-            border-radius: 10px;
-            background: #0d7a3e;
-            color: white;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .download-btn:hover {
-            background: #075e30;
-        }
-
         .section-title {
             font-size: 20px;
             font-weight: 700;
@@ -86,19 +61,20 @@
         }
 
         .item {
-            background: #d1fae5;
+            background: #d1fae5; /* المرئي: أخضر فاتح */
             padding: 10px 12px;
             margin: 6px 0;
             border-radius: 8px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* النص يمين – ⏳ يسار */
             align-items: center;
             font-size: 15px;
             font-weight: 600;
         }
 
+        /* للصوتيات لون مختلف */
         .item.audio {
-            background: #e0e7ff;
+            background: #e0e7ff; /* أزرق فاتح */
         }
 
         .item span.text {
@@ -138,20 +114,34 @@
     <!-- صورة الغلاف -->
     <img src="cover.jpg" class="cover" alt="غلاف الكتاب">
 
-    <!--  🔽 أزرار التحميل الجديدة 🔽 -->
-    <div class="download-box">
-        <a href="#" class="download-btn">📥 تحميل الكتاب PDF</a>
-        <a href="#" class="download-btn">🎬 تحميل جميع الفيديوهات كملف واحد</a>
-        <a href="#" class="download-btn">🎧 تحميل جميع الصوتيات كملف واحد</a>
+    <!-- ✅ الإضافات الثلاثة المطلوبة (قبل الملفات المرئية) -->
+    <div class="items-wrapper" style="margin-bottom: 20px;">
+        <div class="item">
+            <span class="text">📄 تحميل الكتاب كاملًا (PDF)</span>
+            <span class="soon-badge">⏳ قريبًا</span>
+        </div>
+        <div class="item">
+            <span class="text">🎬 تحميل جميع الفيديوهات كملف واحد</span>
+            <span class="soon-badge">⏳ قريبًا</span>
+        </div>
+        <div class="item">
+            <span class="text">🎧 تحميل جميع الصوتيات كملف واحد</span>
+            <span class="soon-badge">⏳ قريبًا</span>
+        </div>
     </div>
-    <!--  🔼 نهاية الإضافة المطلوبة فقط 🔼 -->
+    <!-- نهاية الإضافات -->
 
     <!-- المحتوى المرئي -->
     <div class="section-title">📘 المحتوى المرئي (الفيديوهات)</div>
     <div class="items-wrapper">
 
-        <div class="item"><span class="text">المقدّمة</span><span class="soon-badge">⏳ قريبًا</span></div>
+        <!-- سطر مستقل: المقدّمة -->
+        <div class="item">
+            <span class="text">المقدّمة</span>
+            <span class="soon-badge">⏳ قريبًا</span>
+        </div>
 
+        <!-- التعداد من (1) إلى (25) -->
         <div class="item"><span class="text">مشاهدة الدرس (1): القرآنُ الكريمُ وعِلمُ التَّجويدِ</span><span class="soon-badge">⏳ قريبًا</span></div>
         <div class="item"><span class="text">مشاهدة الدرس (2): الاستِعاذةُ والبسْملةُ</span><span class="soon-badge">⏳ قريبًا</span></div>
         <div class="item"><span class="text">مشاهدة الدرس (3): أحكامُ النُّونِ السَّاكنةِ والتَّنوينِ</span><span class="soon-badge">⏳ قريبًا</span></div>
@@ -183,7 +173,7 @@
     <!-- المحتوى الصوتي -->
     <div class="section-title">🎧 المحتوى الصوتي (التسجيلات)</div>
     <div class="items-wrapper">
-        
+
         <div class="item audio"><span class="text">المقدّمة</span><span class="soon-badge">⏳ قريبًا</span></div>
 
         <div class="item audio"><span class="text">استماع الدرس (1): القرآنُ الكريمُ وعِلمُ التَّجويدِ</span><span class="soon-badge">⏳ قريبًا</span></div>
